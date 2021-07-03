@@ -3,7 +3,7 @@
 # Created by: AustinGarrick1818
 # Script version: v0.0.1-alpha
 
-SRC := pkg.c
+SRC := pkg.c main.c utils.c
 OBJ := $(SRC:.c=.o)
 MODULE := pkg
 

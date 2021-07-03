@@ -11,7 +11,7 @@ CC_STRIP = "/usr/bin/arm-linux-gnueabi-strip"
 
 CFLAGS = "-Os -Wall -Wextra -lcrypt -lz -pthread"
 
-SRC = "pkg.c"
+SRC = "pkg.c main.c utils.c"
 MODULE = "pkg"
 
 with open(file, "w") as fd:
