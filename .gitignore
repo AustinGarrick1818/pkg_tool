@@ -1,3 +1,8 @@
 *.o
 *.sh
 *.pyc
+*.pkg
+
+out
+build
+

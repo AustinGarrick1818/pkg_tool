@@ -9,7 +9,7 @@ ver = "v0.0.1-alpha"
 CC = "/usr/bin/arm-linux-gnueabi-gcc"
 CC_STRIP = "/usr/bin/arm-linux-gnueabi-strip"
 
-CFLAGS = "-Os -Wall -Wextra -lcrypt -lz -pthread"
+CFLAGS = "-Os -Wall -Wextra -lcrypt -pthread"
 
 SRC = "pkg.c main.c utils.c"
 MODULE = "pkg"
@@ -30,7 +30,7 @@ with open(file, "w") as fd:
    fd.write("CC_STRIP := %s\n\n" % CC_STRIP)
 
    fd.write("CFLAGS := %s\n\n" % CFLAGS)
-   fd.write("all: MODULE\n\n")
+   fd.write("all: $(MODULE)\n\n")
 
    fd.write("%.o: %.c\n")
    fd.write("\t$(CC) -c -o $@ $< $(CFLAGS)\n\n")

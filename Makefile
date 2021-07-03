@@ -10,9 +10,9 @@ MODULE := pkg
 CC := /usr/bin/arm-linux-gnueabi-gcc
 CC_STRIP := /usr/bin/arm-linux-gnueabi-strip
 
-CFLAGS := -Os -Wall -Wextra -lcrypt -lz -pthread
+CFLAGS := -Os -Wall -Wextra -lcrypt -pthread
 
-all: MODULE
+all: $(MODULE)
 
 %.o: %.c
 	$(CC) -c -o $@ $< $(CFLAGS)

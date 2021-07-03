@@ -26,12 +26,12 @@ typedef struct {
    pkg_hdr_t hdr[15];
    pkg_meta_t meta[15];
 
-   char pkg_data[MAX_PKG_LEN];
+   char data[MAX_PKG_LEN];
    char encrypt[10];
    time_t pkg_pak_time;
 } pkg_file_t;
 
 
-int blk_write(char *n, int blk);
+//int blk_write(char *n, int blk);
 
 #endif
