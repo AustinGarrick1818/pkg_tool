@@ -1,8 +1,11 @@
 *.o
 *.sh
+*.py
 *.pyc
 *.pkg
 
+pkg
 out
 build
+__pycache__
 
