@@ -3,7 +3,7 @@
 import sys
 
 file = "Makefile"
-auth = "MasterHugeD"
+auth = "AustinGarrick1818"
 ver = "v0.0.1-alpha"
 
 CC = "/usr/bin/arm-linux-gnueabi-gcc"
