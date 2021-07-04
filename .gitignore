@@ -1,11 +1,8 @@
+# Object files
 *.o
 *.sh
-*.py
-*.pyc
 *.pkg
+*.bak
 
+# Compiled tool(s)
 pkg
-out
-build
-__pycache__
-
