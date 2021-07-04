@@ -10,4 +10,4 @@ pkg
 
 # Since we include a premade Makefile we don't
 # need this in the offical github source
-/scripts
+scripts/*.py
