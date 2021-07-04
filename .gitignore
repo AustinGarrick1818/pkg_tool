@@ -4,3 +4,5 @@
 *.py
 *.pkg
 *.bak
+
+src/include/*.swp
