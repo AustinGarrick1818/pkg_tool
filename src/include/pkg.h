@@ -9,20 +9,11 @@
 #define PKG_SIG_LEN 3
 
 
-// Supproted file formats
-const char pkg_ext[] = {
-   ".mp3",
-   ".txt",
-   ".log",
-   ".bin",
-   ".elf",
-   ".exe",
-};
-
 typedef struct {
    char hdr_sig[5];
    int hdr_ver;
    int sig_len;
+   time_t hdr_mod_time;
 } pkg_hdr_t;
 
 typedef struct {
@@ -34,20 +25,15 @@ typedef struct {
 
    int pkg_num; // Number of package(s)
    int pkg_len; // Length of file(s)
-   time_t pkg_pak_time;
 
-   char pak_time_sha256[130];
+   time_t meta_mod_time
 } pkg_meta_t;
 
 typedef struct {
-
+   char data[655360]; // 64kb
+   time_t pkg_pak_time;
 }
 
-int pkg_init(pkg_hdr_t *pkg_hdr);
-int pkg_meta_init(pkg_meta_t *meta);
-int pak_pkg(pkg_pack_t *p, char *f);
-
-int verify_sha256(pkg_meta_t *meta);
-int gen_sha256(pkg_meta_t *meta, char *f);
+int pkg_init(); // Prepare header info
 
 #endif
