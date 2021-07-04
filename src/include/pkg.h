@@ -1,33 +1,53 @@
+#pragma once
 #ifndef PKG_H
 #define PKG_H
 
-#pragma once
-
 #include <time.h>
-#include <sys/types.h>
 
-#define MAGIC "\x50\x4b\x47" // PKG in hex
-#define VER "0x01"
-#define ERR 1
+#define PKG_MAGIC "\x70\x6b\x67"
+#define PKG_VER 0x01
+#define PKG_SIG_LEN 3
 
-#define MAX_PKG_LEN 65536 // 64kb
 
-struct {
-   char hdr_sig[10];
-   char hdr_ver[5];
+// Supproted file formats
+const char pkg_ext[] = {
+   ".mp3",
+   ".txt",
+   ".log",
+   ".bin",
+   ".elf",
+   ".exe",
+};
+
+typedef struct {
+   char hdr_sig[5];
+   int hdr_ver;
+   int sig_len;
 } pkg_hdr_t;
 
-struct {
-   char pkg_name[30];
-   int pkg_len;
-   int pkg_num;
+typedef struct {
+   char pkg_name[20];
+
+   char pkg_hdr_sha256[130]; // Header checksum
+   char pkg_meta_sha256[130]; // Metadata checksum
+   char pkg_sha256[130]; // Package contents checksum
+
+   int pkg_num; // Number of package(s)
+   int pkg_len; // Length of file(s)
+   time_t pkg_pak_time;
+
+   char pak_time_sha256[130];
 } pkg_meta_t;
 
-struct {
-   char data[MAX_PKG_LEN];
-   time_t pkg_pak_time;
-} pkg_data_t;
+typedef struct {
 
-int pack(char *f, int f_len);
+}
+
+int pkg_init(pkg_hdr_t *pkg_hdr);
+int pkg_meta_init(pkg_meta_t *meta);
+int pak_pkg(pkg_pack_t *p, char *f);
+
+int verify_sha256(pkg_meta_t *meta);
+int gen_sha256(pkg_meta_t *meta, char *f);
 
 #endif
