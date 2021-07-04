@@ -1,8 +1,6 @@
 # Object files
 *.o
 *.sh
+*.py
 *.pkg
 *.bak
-
-# Tools directory
-/scripts/
