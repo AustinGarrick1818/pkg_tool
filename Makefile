@@ -12,7 +12,7 @@ CC_STRIP := /usr/bin/strip
 
 CFLAGS := -Os -Wall -Wextra -lcrypt
 
-all: MODULE
+all: $(MODULE)
 
 %.o: %.c
 	$(CC) -c -o $@ $< $(CFLAGS)
