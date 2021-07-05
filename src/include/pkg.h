@@ -24,7 +24,7 @@ typedef struct {
    char pkg_sha256[130]; // Package contents checksum
 
    int pkg_num; // Number of package(s)
-   int pkg_len; // Length of file(s)
+   size_t pkg_len; // Length of file(s)
 
    time_t meta_mod_time
 } pkg_meta_t;
@@ -32,8 +32,9 @@ typedef struct {
 typedef struct {
    char data[655360]; // 64kb
    time_t pkg_pak_time;
-}
+} pkg_data_t;
 
 int pkg_init(); // Prepare header info
+int pkg_read(char *f, int num_pkg);
 
 #endif

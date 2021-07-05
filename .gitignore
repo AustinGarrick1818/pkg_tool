@@ -1,8 +1,16 @@
+# NOTE:
+# .swp files are from GNU Nano while your
+# editing your files from command line
+
 # Object files
 *.o
 *.sh
 *.py
 *.pkg
 *.bak
+*.swp
 
+# Anything that might exist while editing
+# the source code
+src/*.swp
 src/include/*.swp
