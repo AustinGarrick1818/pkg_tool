@@ -10,21 +10,21 @@
 
 pkg_hdr_t hdr[15];
 pkg_meta_t meta[1024];
-pkg_data_t pkg_data[655360];
+pkg_data_t pkg_data[65536];
 
 
 
 int pkg_init() {
    // Initalize header information
    strcpy(hdr->hdr_sig, PKG_MAGIC);
-   hdr->hdr_ver = PKG_VER;
-   hdr->sig_len = PKG_SIG_LEN;
-   hdr->hdr_mod_time = time(NULL);
+   hdr->hdr_ver[0] = PKG_VER;
+   hdr->sig_len[0] = PKG_SIG_LEN;
+   hdr->hdr_mod_time[0] = time(NULL);
 }
 
 int pkg_pak(char *f, int num_pkg) {
    int i;
-   char tmp[655360];
+   char tmp[65536];
    FILE *fp[num_pkg];
    FILE *pkg = fopen("new.pkg", "wb");
 
@@ -37,10 +37,11 @@ int pkg_pak(char *f, int num_pkg) {
       }
 
       strcpy(meta->pkg_name, f);
-      meta->pkg_num = num_pkg;
+      meta->pkg_num[0] = num_pkg;
 
       while(fgets(tmp, strlen(f), fp)) {
-         // I don't even know what the fuck to do
+         // We'll get to thia stage at some point
+         // in tue development stage
       }
    }
 }
