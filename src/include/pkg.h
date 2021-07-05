@@ -35,6 +35,6 @@ typedef struct {
 } pkg_data_t;
 
 int pkg_init(); // Prepare header info
-int pkg_read(char *f, int num_pkg);
+int pkg_pak(char *f, int num_pkg);
 
 #endif
