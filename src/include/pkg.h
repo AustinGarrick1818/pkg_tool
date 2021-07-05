@@ -19,6 +19,10 @@ typedef struct {
 typedef struct {
    char pkg_name[20];
 
+   // Effective user ID, and GID
+   char UID[8];
+   char GID[8];
+
    char pkg_hdr_sha256[130]; // Header checksum
    char pkg_meta_sha256[130]; // Metadata checksum
    char pkg_sha256[130]; // Package contents checksum

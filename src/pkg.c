@@ -1,5 +1,6 @@
 #include "pkg.h"
 #include <time.h>
+#include <zconf.h>
 #include <crypt.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,6 +13,11 @@ static pkg_hdr_t hdr[15];
 static pkg_meta_t meta[1024];
 static pkg_data_t pkg_data[65536];
 
+int get_uid() {
+   int uid = getuid();
+   meta->uid[0] = uid;
+   meta->gid[0] = uid;
+}
 
 int pkg_init() {
    // Initalize header information
