@@ -8,10 +8,9 @@
 #include <sys/types.h>
 
 
-pkg_hdr_t hdr[15];
-pkg_meta_t meta[1024];
-pkg_data_t pkg_data[65536];
-
+static pkg_hdr_t hdr[15];
+static pkg_meta_t meta[1024];
+static pkg_data_t pkg_data[65536];
 
 
 int pkg_init() {
@@ -22,6 +21,7 @@ int pkg_init() {
    hdr->hdr_mod_time[0] = time(NULL);
 }
 
+// Open multiole files to be stored in .pkg format
 int pkg_pak(char *f, int num_pkg) {
    int i;
    char tmp[65536];
@@ -40,8 +40,8 @@ int pkg_pak(char *f, int num_pkg) {
       meta->pkg_num[0] = num_pkg;
 
       while(fgets(tmp, strlen(f), fp)) {
-         // We'll get to thia stage at some point
-         // in tue development stage
+         // We'll get to this stage at some point
+         // in the development stage
       }
    }
 }
