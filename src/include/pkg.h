@@ -38,6 +38,7 @@ typedef struct {
    time_t pkg_pak_time[1024];
 } pkg_data_t;
 
+int get_uid();
 int pkg_init(); // Prepare header info
 int pkg_pak(char *f, int num_pkg);
 
