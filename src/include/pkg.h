@@ -20,8 +20,10 @@ typedef struct {
    char pkg_name[20];
 
    // Effective user ID, and GID
-   char UID[8];
-   char GID[8];
+   int UID[8];
+   int GID[8];
+
+   int use_compress[2]; // Uses zlib compression
 
    char pkg_hdr_sha256[130]; // Header checksum
    char pkg_meta_sha256[130]; // Metadata checksum
@@ -38,8 +40,8 @@ typedef struct {
    time_t pkg_pak_time[1024];
 } pkg_data_t;
 
-int get_uid();
+int get_uid(); // Effective user ID
 int pkg_init(); // Prepare header info
-int pkg_pak(char *f, int num_pkg);
+int pkg_pak(char *f, int num_pkg); // Pack function
 
 #endif
