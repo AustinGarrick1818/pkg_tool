@@ -8,6 +8,8 @@
 #define PKG_VER 0x01
 #define PKG_SIG_LEN 3
 
+#define OK 0
+#define ERR 1
 
 typedef struct {
    char hdr_sig[5];
@@ -22,7 +24,6 @@ typedef struct {
    // Effective user ID, and GID
    int UID[8];
    int GID[8];
-
    int use_compress[2]; // Uses zlib compression
 
    char pkg_hdr_sha256[130]; // Header checksum
