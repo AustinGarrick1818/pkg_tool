@@ -4,6 +4,8 @@
 
 # Object files
 *.o
+*.c
+*.h
 *.sh
 *.py
 *.pkg
